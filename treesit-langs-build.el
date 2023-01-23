@@ -313,6 +313,9 @@ from the current state of the grammar repo, without cleanup."
         (pcase (format "%s" target)
           ;; Rust's triple -> system toolchain's triple
           ("aarch64-apple-darwin" "arm64-apple-macos11")
+          ((and
+            (pred (string-match "aarch64.*linux")))
+           "aarch64-unknown-linux-gnu")
           ("nil" nil)
           (_ (error "Unsupported cross-compilation target %s" target))))
   (let* ((source (treesit-langs--source lang-symbol))
