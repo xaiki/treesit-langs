@@ -47,7 +47,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: egor-tensin/setup-clang@v1
-
+        if: runner.os != 'macOS'
       # - name: Install rust toolchain
       #   uses: actions-rs/toolchain@v1
       #   with:
