@@ -56,7 +56,11 @@ jobs:
       #   with:
       #     toolchain: stable
       #     override: true
-
+      - name: install correct libc-dev
+        if: matrix.target
+        shell: bash
+        run: |
+          sudo apt update && sudo apt install libc6-dev-arm64-cross
       - name: Get npm cache dir
         id: npm-cache-dir
         shell: bash
